@@ -3,14 +3,11 @@
 Plugin Name: WPFactory Helper
 Plugin URI: https://wpfactory.com/
 Description: Plugin helps you manage subscriptions for your products from WPFactory.com.
-Version: 1.3.1
+Version: 1.3.2
 Author: Algoritmika Ltd
 Author URI: https://wpfactory.com
 Text Domain: wpcodefactory-helper
 Domain Path: /langs
-Copyright: © 2021 Algoritmika Ltd.
-License: GNU General Public License v3.0
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -42,7 +39,7 @@ final class Alg_WPCodeFactory_Helper {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '1.3.1';
+	public $version = '1.3.2';
 
 	/**
 	 * @var   Alg_WPCodeFactory_Helper The single instance of the class
