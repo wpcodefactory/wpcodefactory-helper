@@ -1,103 +1,103 @@
-#: wpcodefactory-helper.php:126
-msgid "Settings"
-msgstr ""
-
-#: includes/alg-wpcodefactory-helper-site-key-functions.php:96
+#: includes/alg-wpcodefactory-helper-site-key-functions.php:98
 msgid "No key set."
 msgstr ""
 
-#: includes/alg-wpcodefactory-helper-site-key-functions.php:97
+#: includes/alg-wpcodefactory-helper-site-key-functions.php:99
 #, php-format
 msgid ""
 "To get the key, please visit <a target=\"_blank\" href=\"%s\">your account "
 "page at %s</a>."
 msgstr ""
 
-#: includes/alg-wpcodefactory-helper-site-key-functions.php:100
+#: includes/alg-wpcodefactory-helper-site-key-functions.php:102
 #, php-format
 msgid "No response from server. Please <a href=\"%s\">try again</a> later."
 msgstr ""
 
-#: includes/alg-wpcodefactory-helper-site-key-functions.php:102
+#: includes/alg-wpcodefactory-helper-site-key-functions.php:104
 #, php-format
 msgid "Server error. Please <a href=\"%s\">try again</a> later."
 msgstr ""
 
-#: includes/alg-wpcodefactory-helper-site-key-functions.php:105
+#: includes/alg-wpcodefactory-helper-site-key-functions.php:107
 msgid "Error: Unexpected error."
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:80
+#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:87
 msgid "License is valid."
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:86
-#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:174
+#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:93
+#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:182
 msgid "Manage site key"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:104
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:173
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:106
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:176
 msgid "WPFactory Helper"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:105
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:107
 msgid "WPFactory"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:174
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:177
 #, php-format
 msgid "Site URL: %s"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:180
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:183
 msgid "Theme:"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:184
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:187
 msgid "Plugin:"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:190
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:204
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:216
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:193
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:207
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:219
 msgid "Set key"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:200
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:203
 msgid "Plugin"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:206
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:218
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:209
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:221
 msgid "Check key"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:212
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:215
 msgid "Theme"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:224
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:227
 msgid "Type"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:225
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:228
 msgid "Item"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:226
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:229
 msgid "Key"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:227
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:230
 msgid "Actions"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:232
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:235
 #, php-format
 msgid "You have no items from %s installed."
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:235
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:238
 msgid "Update item list manually"
+msgstr ""
+
+#: includes/class-alg-wpcodefactory-helper.php:120
+msgid "Settings"
 msgstr ""

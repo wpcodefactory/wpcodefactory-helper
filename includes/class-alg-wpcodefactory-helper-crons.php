@@ -8,7 +8,7 @@
  * @author  Algoritmika Ltd.
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Alg_WPCodeFactory_Helper_Crons' ) ) :
 
@@ -84,6 +84,8 @@ class Alg_WPCodeFactory_Helper_Crons {
 	 *
 	 * @version 1.0.0
 	 * @since   1.0.0
+	 *
+	 * @todo    [now] (dev) `file_get_contents( $url )`?
 	 */
 	function get_plugins_list() {
 		update_option( 'alg_get_plugins_list_cron_time_last_run', time() );

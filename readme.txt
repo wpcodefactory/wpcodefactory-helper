@@ -1,5 +1,5 @@
 === WPFactory Helper ===
-Contributors: algoritmika, anbinder
+Contributors: wpcodefactory, algoritmika, anbinder
 Tags: wpfactory, wpcodefactory
 Requires at least: 4.4
 Tested up to: 6.0
@@ -13,7 +13,7 @@ Plugin helps you manage subscriptions for your products from WPFactory.com.
 
 Plugin helps you manage subscriptions for your products from [WPFactory.com](https://wpfactory.com) marketplace.
 
-Tired of boring plugins and themes for your WordPress site? WPFactory can change that! WPFactory is your marketplace for customized and uniquely designed plugins and themes. [Browse](https://wpfactory.com) our selection to find something to improve your website. You won't find them anywhere else at these competitive prices. And with a 30-day "no-questions-asked" refund policy, there's no excuse to not have amazing plugins and themes! Here you will find great plugins and themes for your next WordPress website!
+Tired of searching for plugins and themes for your WordPress site? WPFactory can change that! WPFactory is your marketplace for customized and uniquely designed plugins and themes. [Browse](https://wpfactory.com) our selection to find something to improve your website. You won't find them anywhere else at these competitive prices. And with a 30-day "no-questions-asked" refund policy, there's no excuse to not have amazing plugins and themes! Here you will find great plugins and themes for your next WordPress website!
 
 = Feedback =
 
@@ -27,6 +27,13 @@ Tired of boring plugins and themes for your WordPress site? WPFactory can change
 
 == Changelog ==
 
+= 1.4.0 - 27/10/2022 =
+* Dev - "Plugin Update Checker Library" updated to v4.13.
+* Dev - Plugin is loaded on the `plugins_loaded` action now.
+* Dev - Code refactoring.
+* Readme.txt updated.
+* Deploy script added.
+
 = 1.3.2 - 31/05/2022 =
 * Tested up to: 6.0.
 
@@ -35,7 +42,7 @@ Tired of boring plugins and themes for your WordPress site? WPFactory can change
 * Tested up to: 5.7.
 
 = 1.3.0 - 19/12/2019 =
-* Dev - "Plugin Update Checker Library" updated to v4.8.1 (was v4.2).
+* Dev - "Plugin Update Checker Library" updated to v4.8 (was v4.2).
 * Dev - Code refactoring and clean up.
 * Dev - Minor settings restyling.
 * Tested up to: 5.3.
