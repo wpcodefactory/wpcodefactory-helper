@@ -3,7 +3,7 @@ Contributors: wpcodefactory, algoritmika, anbinder
 Tags: wpfactory, wpcodefactory
 Requires at least: 4.4
 Tested up to: 6.0
-Stable tag: 1.3.2
+Stable tag: 1.4.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -15,9 +15,10 @@ Plugin helps you manage subscriptions for your products from [WPFactory.com](htt
 
 Tired of searching for plugins and themes for your WordPress site? WPFactory can change that! WPFactory is your marketplace for customized and uniquely designed plugins and themes. [Browse](https://wpfactory.com) our selection to find something to improve your website. You won't find them anywhere else at these competitive prices. And with a 30-day "no-questions-asked" refund policy, there's no excuse to not have amazing plugins and themes! Here you will find great plugins and themes for your next WordPress website!
 
-= Feedback =
+### &#128472; Feedback ###
 
 * We are open to your suggestions and feedback. Thank you for using or trying out one of our plugins!
+* [Visit our website](https://wpfactory.com/).
 
 == Installation ==
 
@@ -27,7 +28,8 @@ Tired of searching for plugins and themes for your WordPress site? WPFactory can
 
 == Changelog ==
 
-= 1.4.0 - 27/10/2022 =
+= 1.4.0 - 28/10/2022 =
+* Dev - `download_url()` function removed in the `alg_get_plugins_list` and `alg_get_themes_list` actions.
 * Dev - "Plugin Update Checker Library" updated to v4.13.
 * Dev - Plugin is loaded on the `plugins_loaded` action now.
 * Dev - Code refactoring.

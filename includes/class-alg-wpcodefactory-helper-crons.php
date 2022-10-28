@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Admin - Crons
  *
- * @version 1.1.0
+ * @version 1.4.0
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -23,18 +23,22 @@ class Alg_WPCodeFactory_Helper_Crons {
 	 * @todo    [next] (dev) unschedule events?
 	 */
 	function __construct() {
+
 		// Check sites keys
 		add_action( 'init',                 array( $this, 'schedule_check_sites_keys' ) );
 		add_action( 'admin_init',           array( $this, 'schedule_check_sites_keys' ) );
 		add_action( 'alg_check_sites_keys', array( $this, 'check_sites_keys' ) );
+
 		// Get plugins list
 		add_action( 'init',                 array( $this, 'schedule_get_plugins_list' ) );
 		add_action( 'admin_init',           array( $this, 'schedule_get_plugins_list' ) );
 		add_action( 'alg_get_plugins_list', array( $this, 'get_plugins_list' ) );
+
 		// Get themes list
 		add_action( 'init',                 array( $this, 'schedule_get_themes_list' ) );
 		add_action( 'admin_init',           array( $this, 'schedule_get_themes_list' ) );
 		add_action( 'alg_get_themes_list',  array( $this, 'get_themes_list' ) );
+
 	}
 
 	/**
@@ -82,23 +86,13 @@ class Alg_WPCodeFactory_Helper_Crons {
 	/**
 	 * get_plugins_list.
 	 *
-	 * @version 1.0.0
+	 * @version 1.4.0
 	 * @since   1.0.0
-	 *
-	 * @todo    [now] (dev) `file_get_contents( $url )`?
 	 */
 	function get_plugins_list() {
 		update_option( 'alg_get_plugins_list_cron_time_last_run', time() );
-		$url = alg_wpcodefactory_helper()->update_server . '/?alg_get_plugins_list';
-		if ( ! function_exists( 'download_url' ) ) {
-			require_once( ABSPATH . 'wp-admin/includes/file.php' );
-		}
-		$response_file_name = download_url( $url );
-		if ( ! is_wp_error( $response_file_name ) ) {
-			if ( $response = file_get_contents( $response_file_name ) ) {
-				update_option( 'alg_wpcodefactory_helper_plugins', json_decode( $response ) );
-			}
-			unlink( $response_file_name );
+		if ( ( $response = file_get_contents( alg_wpcodefactory_helper()->update_server . '/?alg_get_plugins_list' ) ) ) {
+			update_option( 'alg_wpcodefactory_helper_plugins', json_decode( $response ) );
 		}
 	}
 
@@ -119,21 +113,13 @@ class Alg_WPCodeFactory_Helper_Crons {
 	/**
 	 * get_themes_list.
 	 *
-	 * @version 1.1.0
+	 * @version 1.4.0
 	 * @since   1.1.0
 	 */
 	function get_themes_list() {
 		update_option( 'alg_get_themes_list_cron_time_last_run', time() );
-		$url = alg_wpcodefactory_helper()->update_server . '/?alg_get_themes_list';
-		if ( ! function_exists( 'download_url' ) ) {
-			require_once( ABSPATH . 'wp-admin/includes/file.php' );
-		}
-		$response_file_name = download_url( $url );
-		if ( ! is_wp_error( $response_file_name ) ) {
-			if ( $response = file_get_contents( $response_file_name ) ) {
-				update_option( 'alg_wpcodefactory_helper_themes', json_decode( $response ) );
-			}
-			unlink( $response_file_name );
+		if ( ( $response = file_get_contents( alg_wpcodefactory_helper()->update_server . '/?alg_get_themes_list' ) ) ) {
+			update_option( 'alg_wpcodefactory_helper_themes', json_decode( $response ) );
 		}
 	}
 
