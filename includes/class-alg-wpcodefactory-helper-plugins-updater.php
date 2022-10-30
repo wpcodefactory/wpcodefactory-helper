@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Plugins Updater Class
  *
- * @version 1.3.0
+ * @version 1.4.1
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -45,7 +45,7 @@ class Alg_WPCodeFactory_Helper_Plugins_Updater {
 			$plugin_file = $this->get_plugin_file_from_slug( $plugin_slug );
 			if ( $is_admin ) {
 				add_filter( 'plugin_action_links_' . $plugin_file, array( $this, 'add_plugin_manage_key_action_link' ), 10, 4 );
-				add_action( 'after_plugin_row_'    . $plugin_file, array( $this, 'maybe_add_after_plugin_row_key_error_message' ), 1,  3 );
+				add_action( 'after_plugin_row_'    . $plugin_file, array( $this, 'maybe_add_after_plugin_row_key_error_message' ), 1, 3 );
 			}
 		}
 		// Handle themes update
@@ -99,16 +99,31 @@ class Alg_WPCodeFactory_Helper_Plugins_Updater {
 	/**
 	 * add_updater.
 	 *
-	 * @version 1.1.0
+	 * @version 1.4.1
 	 * @since   1.1.0
 	 *
 	 * @todo    [later] (dev) `Puc_v4_Factory` version
 	 */
 	function add_updater( $item_slug, $item_file_path, $is_plugin = true ) {
+
+		// Build update checker
 		$updater_url = ALG_WPCODEFACTORY_HELPER_UPDATE_SERVER . '/?alg_update_action=get_metadata&alg_update_slug=' . $item_slug;
 		$this->update_checkers[ $item_slug ] = Puc_v4_Factory::buildUpdateChecker( $updater_url, $item_file_path, $item_slug );
+
+		// Query args
 		$updater_query_args_function = ( $is_plugin ? 'add_updater_query_args' : 'add_updater_query_args_theme' );
 		$this->update_checkers[ $item_slug ]->addQueryArgFilter( array( $this, $updater_query_args_function ) );
+
+		// Remove (some) scheduler actions
+		if ( isset( $this->update_checkers[ $item_slug ]->scheduler ) ) {
+			$scheduler = $this->update_checkers[ $item_slug ]->scheduler;
+			remove_action( 'admin_init', array( $scheduler, 'maybeCheckForUpdates' ) );
+			remove_action( 'load-update-core.php', array( $scheduler, 'maybeCheckForUpdates' ) );
+			remove_action( 'load-update.php', array( $scheduler, 'maybeCheckForUpdates' ) );
+			remove_action( ( $is_plugin ? 'load-plugins.php' : 'load-themes.php' ), array( $scheduler, 'maybeCheckForUpdates' ) );
+			remove_action( 'upgrader_process_complete', array( $scheduler, 'upgraderProcessComplete' ), 11 );
+		}
+
 	}
 
 	/**

@@ -28,6 +28,9 @@ Tired of searching for plugins and themes for your WordPress site? WPFactory can
 
 == Changelog ==
 
+= 1.4.1 - 30/10/2022 =
+* Dev - Plugin Update Checker - Some scheduler actions removed.
+
 = 1.4.0 - 28/10/2022 =
 * Dev - `download_url()` function removed in the `alg_get_plugins_list` and `alg_get_themes_list` actions.
 * Dev - "Plugin Update Checker Library" updated to v4.13.
