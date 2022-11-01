@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Plugins Updater Class
  *
- * @version 1.4.1
+ * @version 1.5.0
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -99,7 +99,7 @@ class Alg_WPCodeFactory_Helper_Plugins_Updater {
 	/**
 	 * add_updater.
 	 *
-	 * @version 1.4.1
+	 * @version 1.5.0
 	 * @since   1.1.0
 	 *
 	 * @todo    [later] (dev) `Puc_v4_Factory` version
@@ -201,7 +201,7 @@ class Alg_WPCodeFactory_Helper_Plugins_Updater {
 	/**
 	 * maybe_add_after_plugin_row_key_error_message.
 	 *
-	 * @version 1.4.1
+	 * @version 1.5.0
 	 * @since   1.0.0
 	 */
 	function maybe_add_after_plugin_row_key_error_message( $plugin_file, $plugin_data, $status ) {

@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Admin Site Key Functions
  *
- * @version 1.2.2
+ * @version 1.5.0
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -81,6 +81,7 @@ if ( ! function_exists( 'alg_wpcfh_get_site_key_status_message' ) ) {
 	 * @version 1.2.0
 	 * @since   1.0.0
 	 *
+	 * @todo    [maybe] (dev) `SERVER_ERROR`: not used?
 	 * @todo    [maybe] (dev) No key set: `sprintf( __( 'Key can be set <a href="%s">here</a>.', 'wpcodefactory-helper' ), admin_url( 'options-general.php?page=wpcodefactory-helper&item_slug=' . $item_slug ) )`
 	 * @todo    [later] (Bstr) check `false === $site_key_status && '' == alg_wpcfh_get_site_key( $item_slug )`
 	 */
@@ -113,28 +114,32 @@ if ( ! function_exists( 'alg_wpcfh_check_site_key' ) ) {
 	/**
 	 * alg_wpcfh_check_site_key.
 	 *
-	 * @version 1.0.0
+	 * @version 1.5.0
 	 * @since   1.0.0
 	 */
 	function alg_wpcfh_check_site_key( $item_slug ) {
+
 		if ( '' != ( $site_key = alg_wpcfh_get_site_key( $item_slug ) ) ) {
 			$url = alg_wpcodefactory_helper()->update_server . '/?check_site_key=' . $site_key . '&item_slug=' . $item_slug . '&site_url=' . alg_wpcodefactory_helper()->site_url;
-			if ( ! function_exists( 'download_url' ) ) {
-				require_once( ABSPATH . 'wp-admin/includes/file.php' );
-			}
-			$response_file_name = download_url( $url );
-			if ( ! is_wp_error( $response_file_name ) ) {
-				if ( $response = file_get_contents( $response_file_name ) ) {
-					alg_wpcfh_update_site_key_status( $item_slug, json_decode( $response ) );
-				} else {
-					alg_wpcfh_update_site_key_status( $item_slug, array(), 'NO_RESPONSE' );
-				}
-				unlink( $response_file_name );
+			if ( $response = file_get_contents( $url ) ) {
+
+				$server_response = json_decode( $response );
+				$client_data     = '';
+
 			} else {
-				alg_wpcfh_update_site_key_status( $item_slug, array(), 'SERVER_ERROR' );
+
+				$server_response = array();
+				$client_data     = 'NO_RESPONSE';
+
 			}
 		} else {
-			alg_wpcfh_update_site_key_status( $item_slug, array(), 'EMPTY_SITE_KEY' );
+
+			$server_response = array();
+			$client_data     = 'EMPTY_SITE_KEY';
+
 		}
+
+		alg_wpcfh_update_site_key_status( $item_slug, $server_response, $client_data );
+
 	}
 }

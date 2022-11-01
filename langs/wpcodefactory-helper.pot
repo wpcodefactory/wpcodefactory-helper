@@ -1,25 +1,25 @@
-#: includes/alg-wpcodefactory-helper-site-key-functions.php:98
+#: includes/alg-wpcodefactory-helper-site-key-functions.php:99
 msgid "No key set."
 msgstr ""
 
-#: includes/alg-wpcodefactory-helper-site-key-functions.php:99
+#: includes/alg-wpcodefactory-helper-site-key-functions.php:100
 #, php-format
 msgid ""
 "To get the key, please visit <a target=\"_blank\" href=\"%s\">your account "
 "page at %s</a>."
 msgstr ""
 
-#: includes/alg-wpcodefactory-helper-site-key-functions.php:102
+#: includes/alg-wpcodefactory-helper-site-key-functions.php:103
 #, php-format
 msgid "No response from server. Please <a href=\"%s\">try again</a> later."
 msgstr ""
 
-#: includes/alg-wpcodefactory-helper-site-key-functions.php:104
+#: includes/alg-wpcodefactory-helper-site-key-functions.php:105
 #, php-format
 msgid "Server error. Please <a href=\"%s\">try again</a> later."
 msgstr ""
 
-#: includes/alg-wpcodefactory-helper-site-key-functions.php:107
+#: includes/alg-wpcodefactory-helper-site-key-functions.php:108
 msgid "Error: Unexpected error."
 msgstr ""
 
@@ -28,7 +28,7 @@ msgid "License is valid."
 msgstr ""
 
 #: includes/class-alg-wpcodefactory-helper-plugins-updater.php:93
-#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:182
+#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:197
 msgid "Manage site key"
 msgstr ""
 
