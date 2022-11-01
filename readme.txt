@@ -29,6 +29,7 @@ Tired of searching for plugins and themes for your WordPress site? WPFactory can
 == Changelog ==
 
 = 1.4.1 - 30/10/2022 =
+* Fix - Error message row styling fixed.
 * Dev - Plugin Update Checker - Some scheduler actions removed.
 
 = 1.4.0 - 28/10/2022 =

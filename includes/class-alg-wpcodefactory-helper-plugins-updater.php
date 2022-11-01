@@ -115,7 +115,7 @@ class Alg_WPCodeFactory_Helper_Plugins_Updater {
 		$this->update_checkers[ $item_slug ]->addQueryArgFilter( array( $this, $updater_query_args_function ) );
 
 		// Remove (some) scheduler actions
-		if ( isset( $this->update_checkers[ $item_slug ]->scheduler ) ) {
+		if ( apply_filters( 'wpfactory_helper_remove_actions', true ) && isset( $this->update_checkers[ $item_slug ]->scheduler ) ) {
 			$scheduler = $this->update_checkers[ $item_slug ]->scheduler;
 			remove_action( 'admin_init', array( $scheduler, 'maybeCheckForUpdates' ) );
 			remove_action( 'load-update-core.php', array( $scheduler, 'maybeCheckForUpdates' ) );
@@ -201,14 +201,14 @@ class Alg_WPCodeFactory_Helper_Plugins_Updater {
 	/**
 	 * maybe_add_after_plugin_row_key_error_message.
 	 *
-	 * @version 1.1.0
+	 * @version 1.4.1
 	 * @since   1.0.0
 	 */
 	function maybe_add_after_plugin_row_key_error_message( $plugin_file, $plugin_data, $status ) {
 		$plugin_slug = $this->get_plugin_slug_from_file( $plugin_file );
 		if ( ! alg_wpcfh_is_site_key_valid( $plugin_slug ) ) {
 			echo '<tr class="plugin-update-tr" id="' . $plugin_slug . '-update-site-key" data-slug="' . $plugin_slug . '" data-plugin="' . $plugin_file . '">' .
-				'<td colspan="3" class="plugin-update colspanchange">' .
+				'<td colspan="4" class="plugin-update colspanchange">' .
 					'<div class="update-message notice inline notice-warning notice-alt">' .
 						'<p>' . alg_wpcfh_get_site_key_status_message( $plugin_slug ) . '</p>' .
 					'</div>' .
