@@ -28,6 +28,9 @@ Tired of searching for plugins and themes for your WordPress site? WPFactory can
 
 == Changelog ==
 
+= 1.5.1 - 16/11/2022 =
+* Dev - Only use `file_get_contents()` if `allow_url_fopen` is enabled. If it's not, use `curl()`.
+
 = 1.5.0 - 01/11/2022 =
 * Fix - "Error message" row styling fixed.
 * Dev - `download_url()` function removed from the "Check key" action.

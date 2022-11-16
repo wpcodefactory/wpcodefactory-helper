@@ -1,8 +1,8 @@
 <?php
 /**
- * WPFactory Helper - Main Class
+ * WPFactory Helper - Main Class.
  *
- * @version 1.4.0
+ * @version 1.5.1
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -105,6 +105,30 @@ final class Alg_WPCodeFactory_Helper {
 		$this->plugins_updater = require_once( 'class-alg-wpcodefactory-helper-plugins-updater.php' );
 		require_once( 'class-alg-wpcodefactory-helper-site-key-manager.php' );
 		require_once( 'class-alg-wpcodefactory-helper-crons.php' );
+	}
+
+	/**
+	 * get_response_from_url.
+	 *
+	 * @version 1.5.1
+	 * @since   1.5.1
+	 *
+	 * @param $url
+	 *
+	 * @return bool|mixed|string
+	 */
+	function get_response_from_url( $url ) {
+		$response = false;
+		if ( ini_get( 'allow_url_fopen' ) ) {
+			$response = file_get_contents( $url );
+		} else {
+			$c = curl_init();
+			curl_setopt( $c, CURLOPT_RETURNTRANSFER, 1 );
+			curl_setopt( $c, CURLOPT_URL, $url );
+			$response = curl_exec( $c );
+			curl_close( $c );
+		}
+		return $response;
 	}
 
 	/**

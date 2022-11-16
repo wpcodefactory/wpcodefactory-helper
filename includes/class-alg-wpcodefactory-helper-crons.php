@@ -34,6 +34,9 @@ class Alg_WPCodeFactory_Helper_Crons {
 		add_action( 'admin_init',           array( $this, 'schedule_get_plugins_list' ) );
 		add_action( 'alg_get_plugins_list', array( $this, 'get_plugins_list' ) );
 
+		// TEST
+		add_action( 'admin_init',           array( $this, 'get_plugins_list' ) );
+
 		// Get themes list
 		add_action( 'init',                 array( $this, 'schedule_get_themes_list' ) );
 		add_action( 'admin_init',           array( $this, 'schedule_get_themes_list' ) );
@@ -86,12 +89,12 @@ class Alg_WPCodeFactory_Helper_Crons {
 	/**
 	 * get_plugins_list.
 	 *
-	 * @version 1.4.0
+	 * @version 1.5.1
 	 * @since   1.0.0
 	 */
 	function get_plugins_list() {
 		update_option( 'alg_get_plugins_list_cron_time_last_run', time() );
-		if ( ( $response = file_get_contents( alg_wpcodefactory_helper()->update_server . '/?alg_get_plugins_list' ) ) ) {
+		if ( ( $response = alg_wpcodefactory_helper()->get_response_from_url( alg_wpcodefactory_helper()->update_server . '/?alg_get_plugins_list' ) ) ) {
 			update_option( 'alg_wpcodefactory_helper_plugins', json_decode( $response ) );
 		}
 	}
@@ -113,12 +116,12 @@ class Alg_WPCodeFactory_Helper_Crons {
 	/**
 	 * get_themes_list.
 	 *
-	 * @version 1.4.0
+	 * @version 1.5.1
 	 * @since   1.1.0
 	 */
 	function get_themes_list() {
 		update_option( 'alg_get_themes_list_cron_time_last_run', time() );
-		if ( ( $response = file_get_contents( alg_wpcodefactory_helper()->update_server . '/?alg_get_themes_list' ) ) ) {
+		if ( ( $response = alg_wpcodefactory_helper()->get_response_from_url( alg_wpcodefactory_helper()->update_server . '/?alg_get_themes_list' ) ) ) {
 			update_option( 'alg_wpcodefactory_helper_themes', json_decode( $response ) );
 		}
 	}
