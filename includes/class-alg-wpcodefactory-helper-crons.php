@@ -34,9 +34,6 @@ class Alg_WPCodeFactory_Helper_Crons {
 		add_action( 'admin_init',           array( $this, 'schedule_get_plugins_list' ) );
 		add_action( 'alg_get_plugins_list', array( $this, 'get_plugins_list' ) );
 
-		// TEST
-		add_action( 'admin_init',           array( $this, 'get_plugins_list' ) );
-
 		// Get themes list
 		add_action( 'init',                 array( $this, 'schedule_get_themes_list' ) );
 		add_action( 'admin_init',           array( $this, 'schedule_get_themes_list' ) );
