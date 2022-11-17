@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Main Class.
  *
- * @version 1.5.1
+ * @version 1.5.2
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -110,7 +110,7 @@ final class Alg_WPCodeFactory_Helper {
 	/**
 	 * get_response_from_url.
 	 *
-	 * @version 1.5.1
+	 * @version 1.5.2
 	 * @since   1.5.1
 	 *
 	 * @param $url
@@ -118,8 +118,7 @@ final class Alg_WPCodeFactory_Helper {
 	 * @return bool|mixed|string
 	 */
 	function get_response_from_url( $url ) {
-		$response = false;
-		if ( ini_get( 'allow_url_fopen' ) ) {
+		if ( filter_var( ini_get( 'allow_url_fopen' ), FILTER_VALIDATE_BOOLEAN ) ) {
 			$response = file_get_contents( $url );
 		} else {
 			$c = curl_init();
