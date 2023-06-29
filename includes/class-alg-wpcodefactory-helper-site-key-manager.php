@@ -1,8 +1,8 @@
 <?php
 /**
- * WPFactory Helper - Admin Site Key Manager
+ * WPFactory Helper - Admin Site Key Manager.
  *
- * @version 1.3.0
+ * @version 1.5.3
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -80,12 +80,12 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 	/**
 	 * admin_notice_site_key_status.
 	 *
-	 * @version 1.0.0
+	 * @version 1.5.3
 	 * @since   1.0.0
 	 */
 	function admin_notice_site_key_status() {
 		if ( isset( $_GET['page'] ) && 'wpcodefactory-helper' === $_GET['page'] && isset( $_GET['item_slug'] ) ) {
-			$item_slug = $_GET['item_slug'];
+			$item_slug = sanitize_text_field( $_GET['item_slug'] );
 			$site_key_status = alg_wpcfh_get_site_key_status( $item_slug );
 			if ( false !== $site_key_status ) {
 				$class   = ( alg_wpcfh_is_site_key_valid( $item_slug ) ? 'notice notice-success is-dismissible' : 'notice notice-error' );
@@ -163,7 +163,7 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 	/**
 	 * output_admin_menu.
 	 *
-	 * @version 1.3.0
+	 * @version 1.5.3
 	 * @since   1.0.0
 	 *
 	 * @todo    [maybe] (dev) restyle
@@ -176,22 +176,22 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 		$html .= '<h2>' . __( 'WPFactory Helper', 'wpcodefactory-helper' ) . '</h2>';
 		$html .= '<h5>' . sprintf( __( 'Site URL: %s', 'wpcodefactory-helper' ), '<code>' . alg_wpcodefactory_helper()->site_url . '</code>' ) . '</h5>';
 		if ( isset( $_GET['item_slug'] ) ) {
-			$item_slug = $_GET['item_slug'];
+			$item_slug = sanitize_text_field( $_GET['item_slug'] );
 			$key = alg_wpcfh_get_site_key( $item_slug );
 			$html .= '<div class="wrap">';
 			if ( isset( $_GET['item_type'] ) && 'theme' == $_GET['item_type'] ) {
 				$html .= '<h3>' . __( 'Theme:', 'wpcodefactory-helper' ) . ' ' .
-					( '' != $all_themes[ $item_slug ]->get( 'Name' ) ? $all_themes[ $item_slug ]->get( 'Name' ) : $item_slug ) . '</h3>';
+				         ( '' != $all_themes[ $item_slug ]->get( 'Name' ) ? $all_themes[ $item_slug ]->get( 'Name' ) : esc_html( $item_slug ) ) . '</h3>';
 			} else {
 				$plugin_file = $item_slug . '/' . $item_slug . '.php';
 				$html .= '<h3>' . __( 'Plugin:', 'wpcodefactory-helper' ) . ' ' .
-					( isset( $all_plugins[ $plugin_file ]['Name'] ) ? $all_plugins[ $plugin_file ]['Name'] : $item_slug ) . '</h3>';
+				         ( isset( $all_plugins[ $plugin_file ]['Name'] ) ? $all_plugins[ $plugin_file ]['Name'] : esc_html( $item_slug ) ) . '</h3>';
 			}
 			$html .= '<form method="post">';
-			$html .= '<input style="min-width:300px;" type="text" name="alg_site_key" value="' . $key . '">';
+			$html .= '<input style="min-width:300px;" type="text" name="alg_site_key" value="' . esc_attr( $key ) . '">';
 			$html .= ' ';
 			$html .= '<input class="button-primary" type="submit" name="alg_set_site_key" value="' . __( 'Set key', 'wpcodefactory-helper' ) . '">';
-			$html .= '<input type="hidden" name="alg_item_slug" value="' . $item_slug . '">';
+			$html .= '<input type="hidden" name="alg_item_slug" value="' . esc_attr( $item_slug ) . '">';
 			$html .= '</form>';
 			$html .= '</div>';
 		}
