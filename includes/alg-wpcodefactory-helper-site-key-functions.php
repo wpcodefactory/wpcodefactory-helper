@@ -1,6 +1,6 @@
 <?php
 /**
- * WPFactory Helper - Admin Site Key Functions.
+ * WPFactory Helper - Admin Site Key Functions
  *
  * @version 1.5.1
  * @since   1.0.0

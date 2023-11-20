@@ -1,6 +1,6 @@
 <?php
 /**
- * WPFactory Helper - Main Class.
+ * WPFactory Helper - Main Class
  *
  * @version 1.5.2
  * @since   1.0.0

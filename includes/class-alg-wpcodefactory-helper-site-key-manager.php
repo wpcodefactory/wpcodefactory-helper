@@ -1,6 +1,6 @@
 <?php
 /**
- * WPFactory Helper - Admin Site Key Manager.
+ * WPFactory Helper - Admin Site Key Manager
  *
  * @version 1.5.3
  * @since   1.0.0
@@ -181,11 +181,11 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 			$html .= '<div class="wrap">';
 			if ( isset( $_GET['item_type'] ) && 'theme' == $_GET['item_type'] ) {
 				$html .= '<h3>' . __( 'Theme:', 'wpcodefactory-helper' ) . ' ' .
-				         ( '' != $all_themes[ $item_slug ]->get( 'Name' ) ? $all_themes[ $item_slug ]->get( 'Name' ) : esc_html( $item_slug ) ) . '</h3>';
+					( '' != $all_themes[ $item_slug ]->get( 'Name' ) ? $all_themes[ $item_slug ]->get( 'Name' ) : esc_html( $item_slug ) ) . '</h3>';
 			} else {
 				$plugin_file = $item_slug . '/' . $item_slug . '.php';
 				$html .= '<h3>' . __( 'Plugin:', 'wpcodefactory-helper' ) . ' ' .
-				         ( isset( $all_plugins[ $plugin_file ]['Name'] ) ? $all_plugins[ $plugin_file ]['Name'] : esc_html( $item_slug ) ) . '</h3>';
+					( isset( $all_plugins[ $plugin_file ]['Name'] ) ? $all_plugins[ $plugin_file ]['Name'] : esc_html( $item_slug ) ) . '</h3>';
 			}
 			$html .= '<form method="post">';
 			$html .= '<input style="min-width:300px;" type="text" name="alg_site_key" value="' . esc_attr( $key ) . '">';
