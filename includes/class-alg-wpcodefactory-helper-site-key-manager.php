@@ -48,7 +48,7 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 	 * @version 1.2.0
 	 * @since   1.2.0
 	 *
-	 * @todo    [maybe] (dev) add "Item list successfully updated" message
+	 * @todo    (dev) add "Item list successfully updated" message
 	 */
 	function update_item_list() {
 		if ( isset( $_GET['alg_update_item_list'] ) ) {
@@ -166,7 +166,7 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 	 * @version 1.5.3
 	 * @since   1.0.0
 	 *
-	 * @todo    [maybe] (dev) restyle
+	 * @todo    (dev) restyle
 	 */
 	function output_admin_menu() {
 		$all_plugins = get_plugins();

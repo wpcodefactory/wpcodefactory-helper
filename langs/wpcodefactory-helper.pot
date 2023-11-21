@@ -23,12 +23,12 @@ msgstr ""
 msgid "Error: Unexpected error."
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:87
+#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:121
 msgid "License is valid."
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:93
-#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:197
+#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:127
+#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:231
 msgid "Manage site key"
 msgstr ""
 
@@ -98,6 +98,6 @@ msgstr ""
 msgid "Update item list manually"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper.php:120
+#: includes/class-alg-wpcodefactory-helper.php:172
 msgid "Settings"
 msgstr ""

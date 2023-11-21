@@ -1,9 +1,9 @@
 === WPFactory Helper ===
-Contributors: wpcodefactory, algoritmika, anbinder
+Contributors: wpcodefactory, algoritmika, anbinder, karzin, omardabbas, kousikmukherjeeli
 Tags: wpfactory, wpcodefactory
 Requires at least: 4.4
-Tested up to: 6.2
-Stable tag: 1.5.3
+Tested up to: 6.4
+Stable tag: 1.5.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -27,6 +27,10 @@ Tired of searching for plugins and themes for your WordPress site? WPFactory can
 3. Start by visiting "Settings > WPFactory" from your admin dashboard.
 
 == Changelog ==
+
+= 1.5.4 - 21/11/2023 =
+* Dev - PHP 8.2 compatibility - "Creation of dynamic property is deprecated" notice fixed.
+* Tested up to: 6.4.
 
 = 1.5.3 - 29/06/2023 =
 * Fix XSS vulnerability.

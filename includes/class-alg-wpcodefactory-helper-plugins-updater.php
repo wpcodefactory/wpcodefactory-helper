@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Plugins Updater Class
  *
- * @version 1.5.0
+ * @version 1.5.4
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -15,6 +15,34 @@ if ( ! class_exists( 'Alg_WPCodeFactory_Helper_Plugins_Updater' ) ) :
 class Alg_WPCodeFactory_Helper_Plugins_Updater {
 
 	/**
+	 * plugins_to_update.
+	 *
+	 * @since 1.5.4
+	 */
+	public $plugins_to_update;
+
+	/**
+	 * themes_to_update.
+	 *
+	 * @since 1.5.4
+	 */
+	public $themes_to_update;
+
+	/**
+	 * items_to_update.
+	 *
+	 * @since 1.5.4
+	 */
+	public $items_to_update;
+
+	/**
+	 * update_checkers.
+	 *
+	 * @since 1.5.4
+	 */
+	public $update_checkers;
+
+	/**
 	 * Constructor.
 	 *
 	 * @version 1.1.0
@@ -22,12 +50,15 @@ class Alg_WPCodeFactory_Helper_Plugins_Updater {
 	 *
 	 * @see     https://github.com/YahnisElsts/plugin-update-checker/
 	 *
-	 * @todo    [next] (dev) move `lib` folder up (or to the `assets` folder)?
-	 * @todo    [next] (dev) update library
+	 * @todo    (dev) move `lib` folder up (or to the `assets` folder)?
+	 * @todo    (dev) update library
 	 */
 	function __construct() {
+
 		require_once( 'lib/plugin-update-checker/plugin-update-checker.php' );
+
 		$is_admin = is_admin();
+
 		// Handle plugins update
 		$this->plugins_to_update = array();
 		$all_plugins = get_option( 'alg_wpcodefactory_helper_plugins', array() );
@@ -48,6 +79,7 @@ class Alg_WPCodeFactory_Helper_Plugins_Updater {
 				add_action( 'after_plugin_row_'    . $plugin_file, array( $this, 'maybe_add_after_plugin_row_key_error_message' ), 1, 3 );
 			}
 		}
+
 		// Handle themes update
 		$this->themes_to_update = array();
 		$all_themes = get_option( 'alg_wpcodefactory_helper_themes', array() );
@@ -65,8 +97,10 @@ class Alg_WPCodeFactory_Helper_Plugins_Updater {
 		if ( $is_admin ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'add_theme_manage_key_links' ) );
 		}
+
 		// Items to update
 		$this->items_to_update = array_merge( $this->plugins_to_update, $this->themes_to_update );
+
 	}
 
 	/**
@@ -75,7 +109,7 @@ class Alg_WPCodeFactory_Helper_Plugins_Updater {
 	 * @version 1.3.0
 	 * @since   1.1.0
 	 *
-	 * @todo    [next] (dev) minimize JS
+	 * @todo    (dev) minimize JS
 	 */
 	function add_theme_manage_key_links() {
 		if ( empty( $this->themes_to_update ) ) {
@@ -102,7 +136,7 @@ class Alg_WPCodeFactory_Helper_Plugins_Updater {
 	 * @version 1.5.0
 	 * @since   1.1.0
 	 *
-	 * @todo    [later] (dev) `Puc_v4_Factory` version
+	 * @todo    (dev) `Puc_v4_Factory` version
 	 */
 	function add_updater( $item_slug, $item_file_path, $is_plugin = true ) {
 

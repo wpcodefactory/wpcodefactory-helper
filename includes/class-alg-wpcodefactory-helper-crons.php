@@ -20,7 +20,7 @@ class Alg_WPCodeFactory_Helper_Crons {
 	 * @version 1.1.0
 	 * @since   1.0.0
 	 *
-	 * @todo    [next] (dev) unschedule events?
+	 * @todo    (dev) unschedule events?
 	 */
 	function __construct() {
 

@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Main Class
  *
- * @version 1.5.2
+ * @version 1.5.4
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -21,6 +21,34 @@ final class Alg_WPCodeFactory_Helper {
 	 * @since 1.0.0
 	 */
 	public $version = ALG_WPCODEFACTORY_HELPER_VERSION;
+
+	/**
+	 * update_server.
+	 *
+	 * @since 1.5.4
+	 */
+	public $update_server;
+
+	/**
+	 * update_server_text.
+	 *
+	 * @since 1.5.4
+	 */
+	public $update_server_text;
+
+	/**
+	 * site_url.
+	 *
+	 * @since 1.5.4
+	 */
+	public $site_url;
+
+	/**
+	 * plugins_updater.
+	 *
+	 * @since 1.5.4
+	 */
+	public $plugins_updater;
 
 	/**
 	 * @var   Alg_WPCodeFactory_Helper The single instance of the class
@@ -54,11 +82,11 @@ final class Alg_WPCodeFactory_Helper {
 	 *
 	 * @access  public
 	 *
-	 * @todo    [later] (dev) do not overwrite old check value on "server error"
-	 * @todo    [later] (dev) add "recheck licence now" (e.g. on "server error")
-	 * @todo    [later] (dev) `update_server_text` as constant
-	 * @todo    [later] (dev) wp-update-server - json_encode unicode issue
-	 * @todo    [maybe] (dev) check http://w-shadow.com/blog/2011/06/02/automatic-updates-for-commercial-themes/
+	 * @todo    (dev) do not overwrite old check value on "server error"
+	 * @todo    (dev) add "recheck licence now" (e.g. on "server error")
+	 * @todo    (dev) `update_server_text` as constant
+	 * @todo    (dev) wp-update-server - json_encode unicode issue
+	 * @todo    (dev) check http://w-shadow.com/blog/2011/06/02/automatic-updates-for-commercial-themes/
 	 */
 	function __construct() {
 
@@ -82,6 +110,7 @@ final class Alg_WPCodeFactory_Helper {
 		if ( is_admin() ) {
 			add_filter( 'plugin_action_links_' . plugin_basename( ALG_WPCODEFACTORY_HELPER_FILE ), array( $this, 'action_links' ) );
 		}
+
 	}
 
 	/**

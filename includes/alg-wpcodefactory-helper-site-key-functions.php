@@ -81,9 +81,9 @@ if ( ! function_exists( 'alg_wpcfh_get_site_key_status_message' ) ) {
 	 * @version 1.2.0
 	 * @since   1.0.0
 	 *
-	 * @todo    [maybe] (dev) `SERVER_ERROR`: not used?
-	 * @todo    [maybe] (dev) No key set: `sprintf( __( 'Key can be set <a href="%s">here</a>.', 'wpcodefactory-helper' ), admin_url( 'options-general.php?page=wpcodefactory-helper&item_slug=' . $item_slug ) )`
-	 * @todo    [later] (Bstr) check `false === $site_key_status && '' == alg_wpcfh_get_site_key( $item_slug )`
+	 * @todo    (dev) `SERVER_ERROR`: not used?
+	 * @todo    (dev) No key set: `sprintf( __( 'Key can be set <a href="%s">here</a>.', 'wpcodefactory-helper' ), admin_url( 'options-general.php?page=wpcodefactory-helper&item_slug=' . $item_slug ) )`
+	 * @todo    (dev) check `false === $site_key_status && '' == alg_wpcfh_get_site_key( $item_slug )`
 	 */
 	function alg_wpcfh_get_site_key_status_message( $item_slug ) {
 		$site_key_status = alg_wpcfh_get_site_key_status( $item_slug );
