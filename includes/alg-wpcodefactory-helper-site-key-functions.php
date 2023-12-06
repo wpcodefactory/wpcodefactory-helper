@@ -87,11 +87,8 @@ if ( ! function_exists( 'alg_wpcfh_get_site_key_status_message' ) ) {
 	 */
 	function alg_wpcfh_get_site_key_status_message( $item_slug ) {
 		$site_key_status = alg_wpcfh_get_site_key_status( $item_slug );
-		error_log('---');
-		error_log(print_r($site_key_status,true));
 		if ( false === $site_key_status && '' == alg_wpcfh_get_site_key( $item_slug ) ) {
 			$site_key_status['client_data'] = 'EMPTY_SITE_KEY';
-			error_log(print_r($site_key_status,true));
 		}
 		if ( isset( $site_key_status['server_response']->error->message ) ) {
 			return $site_key_status['server_response']->error->message;
