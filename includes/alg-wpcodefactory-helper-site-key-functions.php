@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Admin Site Key Functions
  *
- * @version 1.5.1
+ * @version 1.5.6
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -78,7 +78,7 @@ if ( ! function_exists( 'alg_wpcfh_get_site_key_status_message' ) ) {
 	/**
 	 * alg_wpcfh_get_site_key_status_message.
 	 *
-	 * @version 1.2.0
+	 * @version 1.5.6
 	 * @since   1.0.0
 	 *
 	 * @todo    (dev) `SERVER_ERROR`: not used?
@@ -88,6 +88,7 @@ if ( ! function_exists( 'alg_wpcfh_get_site_key_status_message' ) ) {
 	function alg_wpcfh_get_site_key_status_message( $item_slug ) {
 		$site_key_status = alg_wpcfh_get_site_key_status( $item_slug );
 		if ( false === $site_key_status && '' == alg_wpcfh_get_site_key( $item_slug ) ) {
+			$site_key_status = array();
 			$site_key_status['client_data'] = 'EMPTY_SITE_KEY';
 		}
 		if ( isset( $site_key_status['server_response']->error->message ) ) {
