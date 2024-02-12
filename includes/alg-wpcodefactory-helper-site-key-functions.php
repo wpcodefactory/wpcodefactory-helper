@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Admin Site Key Functions
  *
- * @version 1.5.6
+ * @version 1.5.7
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -115,32 +115,27 @@ if ( ! function_exists( 'alg_wpcfh_check_site_key' ) ) {
 	/**
 	 * alg_wpcfh_check_site_key.
 	 *
-	 * @version 1.5.1
+	 * @version 1.5.7
 	 * @since   1.0.0
 	 */
 	function alg_wpcfh_check_site_key( $item_slug ) {
-
 		if ( '' != ( $site_key = alg_wpcfh_get_site_key( $item_slug ) ) ) {
-			$url = alg_wpcodefactory_helper()->update_server . '/?check_site_key=' . $site_key . '&item_slug=' . $item_slug . '&site_url=' . alg_wpcodefactory_helper()->site_url;
+			$url = add_query_arg( array(
+				'check_site_key' => $site_key,
+				'item_slug'      => $item_slug,
+				'site_url'       => alg_wpcodefactory_helper()->site_url,
+			), alg_wpcodefactory_helper()->update_server );
 			if ( $response = alg_wpcodefactory_helper()->get_response_from_url( $url ) ) {
-
 				$server_response = json_decode( $response );
 				$client_data     = '';
-
 			} else {
-
 				$server_response = array();
 				$client_data     = 'NO_RESPONSE';
-
 			}
 		} else {
-
 			$server_response = array();
 			$client_data     = 'EMPTY_SITE_KEY';
-
 		}
-
 		alg_wpcfh_update_site_key_status( $item_slug, $server_response, $client_data );
-
 	}
 }

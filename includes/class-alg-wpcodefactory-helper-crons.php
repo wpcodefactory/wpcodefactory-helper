@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Admin - Crons
  *
- * @version 1.5.1
+ * @version 1.5.7
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -86,12 +86,13 @@ class Alg_WPCodeFactory_Helper_Crons {
 	/**
 	 * get_plugins_list.
 	 *
-	 * @version 1.5.1
+	 * @version 1.5.7
 	 * @since   1.0.0
 	 */
 	function get_plugins_list() {
 		update_option( 'alg_get_plugins_list_cron_time_last_run', time() );
-		if ( ( $response = alg_wpcodefactory_helper()->get_response_from_url( alg_wpcodefactory_helper()->update_server . '/?alg_get_plugins_list' ) ) ) {
+		$url = add_query_arg( array( 'alg_get_plugins_list' => '' ), alg_wpcodefactory_helper()->update_server );
+		if ( ( $response = alg_wpcodefactory_helper()->get_response_from_url( $url ) ) ) {
 			update_option( 'alg_wpcodefactory_helper_plugins', json_decode( $response ) );
 		}
 	}
@@ -113,12 +114,13 @@ class Alg_WPCodeFactory_Helper_Crons {
 	/**
 	 * get_themes_list.
 	 *
-	 * @version 1.5.1
+	 * @version 1.5.7
 	 * @since   1.1.0
 	 */
 	function get_themes_list() {
 		update_option( 'alg_get_themes_list_cron_time_last_run', time() );
-		if ( ( $response = alg_wpcodefactory_helper()->get_response_from_url( alg_wpcodefactory_helper()->update_server . '/?alg_get_themes_list' ) ) ) {
+		$url = add_query_arg( array( 'alg_get_themes_list', '' ), alg_wpcodefactory_helper()->update_server );
+		if ( ( $response = alg_wpcodefactory_helper()->get_response_from_url( $url ) ) ) {
 			update_option( 'alg_wpcodefactory_helper_themes', json_decode( $response ) );
 		}
 	}

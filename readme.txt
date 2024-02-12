@@ -3,7 +3,7 @@ Contributors: wpcodefactory, algoritmika, anbinder, karzin, omardabbas, kousikmu
 Tags: wpfactory, wpcodefactory
 Requires at least: 4.4
 Tested up to: 6.4
-Stable tag: 1.5.6
+Stable tag: 1.5.7
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -27,6 +27,9 @@ Tired of searching for plugins and themes for your WordPress site? WPFactory can
 3. Start by visiting "Settings > WPFactory" from your admin dashboard.
 
 == Changelog ==
+
+= 1.5.7 - 12/02/2024 =
+* Fix - Failed to open stream in class-alg-wpcodefactory-helper.php on line 160.
 
 = 1.5.6 - 07/12/2023 =
 * Fix "PHP Deprecated:  Automatic conversion of false to array is deprecated in alg-wpcodefactory-helper-site-key-functions.php".
