@@ -105,7 +105,7 @@ if ( ! class_exists( 'Alg_WPCodeFactory_Helper_API_Access_Method_Option' ) ) {
 		}
 
 		/**
-		 * test.
+		 * generate_option_html.
 		 *
 		 * @version 1.5.8
 		 * @since   1.5.8
