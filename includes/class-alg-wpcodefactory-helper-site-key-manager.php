@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Admin Site Key Manager
  *
- * @version 1.5.8
+ * @version 1.5.9
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -135,7 +135,6 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 		end( $data );
 		$lasy_key = key( $data );
 		foreach( $data as $row_nr => $row ) {
-			$html .= 0 === $row_nr ? '<thead>' : '';
 			$html .= 0 === $row_nr ? '<thead>' : ( 1 === $row_nr ? '<tbody>' : '' );
 			$html .= '<tr' . $row_styles . '>';
 			foreach( $row as $column_nr => $value ) {
