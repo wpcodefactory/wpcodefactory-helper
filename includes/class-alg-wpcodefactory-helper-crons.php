@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Admin - Crons
  *
- * @version 1.5.7
+ * @version 1.5.8
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -114,12 +114,12 @@ class Alg_WPCodeFactory_Helper_Crons {
 	/**
 	 * get_themes_list.
 	 *
-	 * @version 1.5.7
+	 * @version 1.5.8
 	 * @since   1.1.0
 	 */
 	function get_themes_list() {
 		update_option( 'alg_get_themes_list_cron_time_last_run', time() );
-		$url = add_query_arg( array( 'alg_get_themes_list', '' ), alg_wpcodefactory_helper()->update_server );
+		$url = add_query_arg( array( 'alg_get_themes_list' => '' ), alg_wpcodefactory_helper()->update_server );
 		if ( ( $response = alg_wpcodefactory_helper()->get_response_from_url( $url ) ) ) {
 			update_option( 'alg_wpcodefactory_helper_themes', json_decode( $response ) );
 		}

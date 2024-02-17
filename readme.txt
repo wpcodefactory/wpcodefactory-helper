@@ -3,7 +3,7 @@ Contributors: wpcodefactory, algoritmika, anbinder, karzin, omardabbas, kousikmu
 Tags: wpfactory, wpcodefactory
 Requires at least: 4.4
 Tested up to: 6.4
-Stable tag: 1.5.7
+Stable tag: 1.5.8
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -27,6 +27,13 @@ Tired of searching for plugins and themes for your WordPress site? WPFactory can
 3. Start by visiting "Settings > WPFactory" from your admin dashboard.
 
 == Changelog ==
+
+= 1.5.8 - 16/02/2024 =
+* Fix - Wrong parameters when trying to access themes list.
+* Fix - Products table doesn't have a thead.
+* Dev - Add option to choose between file_get_contents or curl as first method to access WPFactory API.
+* Dev - Add filter `wpfactory_helper_plugins_table_html_before`.
+* Dev - Improve WPFactory Helper page design.
 
 = 1.5.7 - 12/02/2024 =
 * Fix - Failed to open stream in class-alg-wpcodefactory-helper.php on line 160.

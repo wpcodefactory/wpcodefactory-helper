@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Main Class
  *
- * @version 1.5.7
+ * @version 1.5.8
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -126,7 +126,7 @@ final class Alg_WPCodeFactory_Helper {
 	/**
 	 * Include required core files used in admin and on the frontend.
 	 *
-	 * @version 1.4.0
+	 * @version 1.5.8
 	 * @since   1.0.0
 	 */
 	function includes() {
@@ -134,12 +134,16 @@ final class Alg_WPCodeFactory_Helper {
 		$this->plugins_updater = require_once( 'class-alg-wpcodefactory-helper-plugins-updater.php' );
 		require_once( 'class-alg-wpcodefactory-helper-site-key-manager.php' );
 		require_once( 'class-alg-wpcodefactory-helper-crons.php' );
+		// API access method option.
+		require_once( 'class-alg-wpcodefactory-helper-api-access-method-option.php' );
+		$class = new Alg_WPCodeFactory_Helper_API_Access_Method_Option();
+		$class->init();
 	}
 
 	/**
 	 * get_response_from_url.
 	 *
-	 * @version 1.5.7
+	 * @version 1.5.8
 	 * @since   1.5.1
 	 *
 	 * @param $url
@@ -147,7 +151,59 @@ final class Alg_WPCodeFactory_Helper {
 	 * @return bool|mixed|string
 	 */
 	function get_response_from_url( $url ) {
-		$url = html_entity_decode( $url );
+		$url                     = html_entity_decode( $url );
+		$first_api_access_method = get_option( 'alg_wpcodefactory_helper_api_access_method', 'file_get_contents' );
+		$api_access_methods      = array( 'file_get_contents', 'curl' );
+		if ( 'curl' === $first_api_access_method ) {
+			$api_access_methods = array( 'curl', 'file_get_contents' );
+		}
+		$response = false;
+		foreach ( $api_access_methods as $method ) {
+			if ( false === $response ) {
+				$response = call_user_func( array( $this, "get_response_from_url_using_{$method}" ), $url );
+			} else {
+				break;
+			}
+		}
+
+		return $response;
+	}
+
+	/**
+	 * get_response_from_url_using_curl.
+	 *
+	 * @version 1.5.8
+	 * @since   1.5.8
+	 *
+	 * @param $url
+	 *
+	 * @return bool|string
+	 */
+	function get_response_from_url_using_curl( $url ) {
+		$response = false;
+		if ( extension_loaded( 'curl' ) ) {
+			$c = curl_init();
+			curl_setopt( $c, CURLOPT_RETURNTRANSFER, 1 );
+			curl_setopt( $c, CURLOPT_URL, $url );
+			$response = curl_exec( $c );
+			curl_close( $c );
+		}
+
+		return $response;
+	}
+
+	/**
+	 * get_response_from_url_using_file_get_contents.
+	 *
+	 * @version 1.5.8
+	 * @since   1.5.8
+	 *
+	 * @param $url
+	 *
+	 * @return false|string
+	 */
+	function get_response_from_url_using_file_get_contents( $url ) {
+		$response = false;
 		if ( filter_var( ini_get( 'allow_url_fopen' ), FILTER_VALIDATE_BOOLEAN ) ) {
 			if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && ! empty( $agent = $_SERVER['HTTP_USER_AGENT'] ) ) {
 				$options  = array(
@@ -162,12 +218,6 @@ final class Alg_WPCodeFactory_Helper {
 			} else {
 				$response = file_get_contents( $url );
 			}
-		} else {
-			$c = curl_init();
-			curl_setopt( $c, CURLOPT_RETURNTRANSFER, 1 );
-			curl_setopt( $c, CURLOPT_URL, $url );
-			$response = curl_exec( $c );
-			curl_close( $c );
 		}
 
 		return $response;
