@@ -45,8 +45,8 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 	/**
 	 * update_item_list.
 	 *
-	 * @version 1.2.0
-	 * @since   1.2.0
+	 * @version       1.2.0
+	 * @since         1.2.0
 	 *
 	 * @todo    (dev) add "Item list successfully updated" message
 	 */
@@ -146,7 +146,6 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 			}
 			$html .= '</tr>';
 			$html .= 0 === $row_nr ? '</thead>' : ( $lasy_key === $row_nr ? '</tbody>' : '' );
-			//$html .= 0 === $row_nr ? '</thead>' : '' ;
 		}
 		$html .= '</table>';
 		return $html;
@@ -166,11 +165,11 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 	}
 
 	/**
-     * get_site_url_html.
-     *
+	 * get_site_url_html.
+	 *
 	 * @version 1.5.8
 	 * @since   1.5.8
-     *
+	 *
 	 * @return false|string
 	 */
 	function get_site_url_html() {
@@ -195,11 +194,11 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 	}
 
 	/**
-     * get_key_setting_input_html.
-     *
+	 * get_key_setting_input_html.
+	 *
 	 * @version 1.5.8
 	 * @since   1.5.8
-     *
+	 *
 	 * @param $all_plugins
 	 * @param $all_themes
 	 *
@@ -256,8 +255,8 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 	/**
 	 * output_admin_menu.
 	 *
-	 * @version 1.5.8
-	 * @since   1.0.0
+	 * @version       1.5.8
+	 * @since         1.0.0
 	 *
 	 * @todo    (dev) restyle
 	 */
