@@ -3,7 +3,7 @@ Contributors: wpcodefactory, algoritmika, anbinder, karzin, omardabbas, kousikmu
 Tags: wpfactory, wpcodefactory
 Requires at least: 4.4
 Tested up to: 6.5
-Stable tag: 1.5.9
+Stable tag: 1.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -29,6 +29,10 @@ Tired of searching for plugins and themes for your WordPress site? WPFactory can
 == Changelog ==
 
 = 1.6.0 - 11/06/2024 =
+* Fix - Input sanitized.
+* Fix - HTML labels fixed.
+* Dev - "Set this key for all items" button added.
+* Dev - HTML restyled.
 * Tested up to: 6.5.
 
 = 1.5.9 - 17/02/2024 =
