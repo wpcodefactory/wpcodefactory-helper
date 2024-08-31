@@ -3,7 +3,7 @@
 Plugin Name: WPFactory Helper
 Plugin URI: https://wpfactory.com/
 Description: Plugin helps you manage subscriptions for your products from WPFactory.com.
-Version: 1.6.0
+Version: 1.7.0
 Author: WPFactory
 Author URI: https://wpfactory.com
 Text Domain: wpcodefactory-helper
@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 
 defined( 'ALG_WPCODEFACTORY_HELPER_UPDATE_SERVER' ) || define( 'ALG_WPCODEFACTORY_HELPER_UPDATE_SERVER', 'https://wpfactory.com' );
 
-defined( 'ALG_WPCODEFACTORY_HELPER_VERSION' ) || define( 'ALG_WPCODEFACTORY_HELPER_VERSION', '1.6.0' );
+defined( 'ALG_WPCODEFACTORY_HELPER_VERSION' ) || define( 'ALG_WPCODEFACTORY_HELPER_VERSION', '1.7.0' );
 
 defined( 'ALG_WPCODEFACTORY_HELPER_FILE' ) || define( 'ALG_WPCODEFACTORY_HELPER_FILE', __FILE__ );
 

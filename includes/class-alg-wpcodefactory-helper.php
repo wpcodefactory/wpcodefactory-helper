@@ -233,7 +233,9 @@ final class Alg_WPCodeFactory_Helper {
 	 * @return  array
 	 */
 	function action_links( $links ) {
-		$links[] = '<a href="' . admin_url( 'options-general.php?page=wpcodefactory-helper' ) . '">' . __( 'Settings', 'wpcodefactory-helper' ) . '</a>';
+		$links[] = '<a href="' . admin_url( 'options-general.php?page=wpcodefactory-helper' ) . '">' .
+			__( 'Settings', 'wpcodefactory-helper' ) .
+		'</a>';
 		return $links;
 	}
 

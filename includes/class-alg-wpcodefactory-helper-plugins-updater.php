@@ -2,13 +2,15 @@
 /**
  * WPFactory Helper - Plugins Updater Class
  *
- * @version 1.5.4
+ * @version 1.7.0
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Alg_WPCodeFactory_Helper_Plugins_Updater' ) ) :
 
@@ -133,16 +135,14 @@ class Alg_WPCodeFactory_Helper_Plugins_Updater {
 	/**
 	 * add_updater.
 	 *
-	 * @version 1.5.0
+	 * @version 1.7.0
 	 * @since   1.1.0
-	 *
-	 * @todo    (dev) `Puc_v4_Factory` version
 	 */
 	function add_updater( $item_slug, $item_file_path, $is_plugin = true ) {
 
 		// Build update checker
 		$updater_url = ALG_WPCODEFACTORY_HELPER_UPDATE_SERVER . '/?alg_update_action=get_metadata&alg_update_slug=' . $item_slug;
-		$this->update_checkers[ $item_slug ] = Puc_v4_Factory::buildUpdateChecker( $updater_url, $item_file_path, $item_slug );
+		$this->update_checkers[ $item_slug ] = PucFactory::buildUpdateChecker( $updater_url, $item_file_path, $item_slug );
 
 		// Query args
 		$updater_query_args_function = ( $is_plugin ? 'add_updater_query_args' : 'add_updater_query_args_theme' );

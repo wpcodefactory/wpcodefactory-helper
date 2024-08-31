@@ -41,11 +41,11 @@ msgid ""
 "change it."
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:121
+#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:123
 msgid "License is valid."
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:127
+#: includes/class-alg-wpcodefactory-helper-plugins-updater.php:129
 #: includes/class-alg-wpcodefactory-helper-plugins-updater.php:231
 msgid "Manage site key"
 msgstr ""
@@ -135,6 +135,6 @@ msgstr ""
 msgid "Update item list manually"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper.php:236
+#: includes/class-alg-wpcodefactory-helper.php:237
 msgid "Settings"
 msgstr ""

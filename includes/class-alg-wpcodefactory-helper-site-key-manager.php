@@ -8,7 +8,7 @@
  * @author  Algoritmika Ltd.
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Alg_WPCodeFactory_Helper_Site_Key_Manager' ) ) :
 
