@@ -2,7 +2,7 @@
 /**
  * WPFactory Helper - Admin Site Key Manager
  *
- * @version 1.6.0
+ * @version 1.7.1
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -243,37 +243,37 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 				$item_label  = ( isset( $all_plugins[ $plugin_file ]['Name'] ) ? $all_plugins[ $plugin_file ]['Name'] : esc_html( $item_slug ) );
 			}
 			?>
-            <table class="form-table" role="presentation">
-                <tbody>
-                <tr>
-                    <th scope="row">
-                        <label for="alg_site_key">
+			<table class="form-table" role="presentation">
+				<tbody>
+				<tr>
+					<th scope="row">
+						<label for="alg_site_key">
 							<?php echo sprintf( esc_html__( '%s key', 'wpcodefactory-helper' ), $item_type_label ); ?>
-                        </label>
-                    </th>
-                    <td>
-                        <form method="post">
-                            <input style="min-width:300px;" type="text" name="alg_site_key" id="alg_site_key"
-                                   value="<?php echo esc_attr( $key ); ?>">
-                            <input type="hidden" name="alg_item_slug" value="<?php echo esc_attr( $item_slug ); ?>">
-                            <input class="button-primary" type="submit" name="alg_set_site_key"
-                                   value="<?php echo esc_attr__( 'Set key', 'wpcodefactory-helper' ); ?>">
-                            <input class="button-primary" type="submit" name="alg_set_site_key_all"
-                                   value="<?php echo esc_attr__( 'Set this key for all items', 'wpcodefactory-helper' ); ?>"
-                                   title="<?php echo esc_attr__( 'Useful for the &quot;All Plugins Access&quot; users.', 'wpcodefactory-helper' ); ?>"
-                                   onclick="return confirm('<?php echo esc_html__( 'Are you sure?', 'wpcodefactory-helper' ); ?>');">
-                            <p class="description">
+						</label>
+					</th>
+					<td>
+						<form method="post">
+							<input style="min-width:300px;" type="text" name="alg_site_key" id="alg_site_key"
+								   value="<?php echo esc_attr( $key ); ?>">
+							<input type="hidden" name="alg_item_slug" value="<?php echo esc_attr( $item_slug ); ?>">
+							<input class="button-primary" type="submit" name="alg_set_site_key"
+								   value="<?php echo esc_attr__( 'Set key', 'wpcodefactory-helper' ); ?>">
+							<input class="button-primary" type="submit" name="alg_set_site_key_all"
+								   value="<?php echo esc_attr__( 'Set this key for all items', 'wpcodefactory-helper' ); ?>"
+								   title="<?php echo esc_attr__( 'Useful for the &quot;All Plugins Access&quot; users.', 'wpcodefactory-helper' ); ?>"
+								   onclick="return confirm('<?php echo esc_html__( 'Are you sure?', 'wpcodefactory-helper' ); ?>');">
+							<p class="description">
 								<?php echo sprintf(
 									__( 'Key for %s %s' ),
 									'<strong>' . esc_html( $item_label ) . '</strong>',
 									esc_html( strtolower( $item_type_label ) )
 								); ?>
-                            </p>
-                        </form>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+							</p>
+						</form>
+					</td>
+				</tr>
+				</tbody>
+			</table>
 			<?php
 		}
 		$html = ob_get_contents();
@@ -285,7 +285,7 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 	/**
 	 * output_admin_menu.
 	 *
-	 * @version 1.6.0
+	 * @version 1.7.1
 	 * @since   1.0.0
 	 *
 	 * @todo    (dev) restyle
@@ -297,11 +297,11 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 
 		$html = '';
 		$html .= '<div class="wrap">';
-		$html .= '<h2>' . __( 'WPFactory Helper', 'wpcodefactory-helper' ) . '</h2>';
+		$html .= '<h2>' . esc_html__( 'WPFactory Helper', 'wpcodefactory-helper' ) . '</h2>';
 		$html .= $this->get_site_url_html();
-		$html .= apply_filters('wpfactory_helper_plugins_table_html_before','');
+		$html .= apply_filters( 'wpfactory_helper_plugins_table_html_before', '' );
 		$html .= $this->get_key_setting_input_html( $all_plugins, $all_themes );
-		$html .= '<h2 style="margin-bottom:23px;">' . __( 'WPFactory items', 'wpcodefactory-helper' ) . '</h2>';
+		$html .= '<h2 style="margin-bottom:23px;">' . esc_html__( 'WPFactory items', 'wpcodefactory-helper' ) . '</h2>';
 
 		$table_data = array();
 
@@ -309,48 +309,84 @@ class Alg_WPCodeFactory_Helper_Site_Key_Manager {
 			$plugin_file   = $plugin_slug . '/' . $plugin_slug . '.php';
 			$item_site_key = alg_wpcfh_get_site_key( $plugin_slug );
 			$table_data[]  = array(
-				__( 'Plugin', 'wpcodefactory-helper' ),
-				( isset( $all_plugins[ $plugin_file ]['Name'] ) ? $all_plugins[ $plugin_file ]['Name'] : $plugin_slug ),
+				esc_html__( 'Plugin', 'wpcodefactory-helper' ),
+				( isset( $all_plugins[ $plugin_file ]['Name'] ) ?
+					$all_plugins[ $plugin_file ]['Name'] :
+					$plugin_slug
+				),
 				$this->get_site_item_key_column( $item_site_key, $plugin_slug ),
-				'<a class="button button-primary" href="' . add_query_arg( array( 'item_slug' => $plugin_slug, 'item_type' => 'plugin' ) ) . '">' .
-					__( 'Set key', 'wpcodefactory-helper' ) . '</a>' .
-						( '' != $item_site_key ? ' ' . '<a class="button button-secondary" href="' . add_query_arg( array( 'alg_check_item_site_key' => $plugin_slug ) ) . '">' .
-							__( 'Check key', 'wpcodefactory-helper' ) . '</a>' : '' ),
+				sprintf(
+					'<a class="button button-primary" href="%s">%s</a>',
+					esc_url( add_query_arg( array( 'item_slug' => $plugin_slug, 'item_type' => 'plugin' ) ) ),
+					esc_html__( 'Set key', 'wpcodefactory-helper' )
+				) .
+					( '' != $item_site_key ?
+						' ' . sprintf(
+							'<a class="button button-secondary" href="%s">%s</a>',
+							esc_url( add_query_arg( array( 'alg_check_item_site_key' => $plugin_slug ) ) ),
+							esc_html__( 'Check key', 'wpcodefactory-helper' )
+						) :
+						''
+					),
 			);
 		}
 
 		foreach ( alg_wpcodefactory_helper()->plugins_updater->themes_to_update as $theme_slug ) {
 			$item_site_key = alg_wpcfh_get_site_key( $theme_slug );
 			$table_data[]  = array(
-				__( 'Theme', 'wpcodefactory-helper' ),
-				( '' != $all_themes[ $theme_slug ]->get( 'Name' ) ? $all_themes[ $theme_slug ]->get( 'Name' ) : $theme_slug ),
+				esc_html__( 'Theme', 'wpcodefactory-helper' ),
+				( '' != $all_themes[ $theme_slug ]->get( 'Name' ) ?
+					$all_themes[ $theme_slug ]->get( 'Name' ) :
+					$theme_slug
+				),
 				$this->get_site_item_key_column( $item_site_key, $theme_slug ),
-				'<a class="button button-primary" href="' . add_query_arg( array( 'item_slug' => $theme_slug, 'item_type' => 'theme' ) ) . '">' .
-					__( 'Set key', 'wpcodefactory-helper' ) . '</a>' .
-						( '' != $item_site_key ? ' ' . '<a class="button button-secondary" href="' . add_query_arg( array( 'alg_check_item_site_key' => $theme_slug ) ) . '">' .
-							__( 'Check key', 'wpcodefactory-helper' ) . '</a>' : '' ),
+				sprintf(
+					'<a class="button button-primary" href="%s">%s</a>',
+					esc_url( add_query_arg( array( 'item_slug' => $theme_slug, 'item_type' => 'theme' ) ) ),
+					esc_html__( 'Set key', 'wpcodefactory-helper' )
+				) .
+					( '' != $item_site_key ?
+						' ' . sprintf(
+							'<a class="button button-secondary" href="%s">%s</a>',
+							esc_url( add_query_arg( array( 'alg_check_item_site_key' => $theme_slug ) ) ),
+							esc_html__( 'Check key', 'wpcodefactory-helper' )
+						) :
+						''
+					),
 			);
 		}
 
 		if ( ! empty( $table_data ) ) {
 			$table_data = array_merge(
 				array( array(
-					__( 'Type', 'wpcodefactory-helper' ),
-					__( 'Item', 'wpcodefactory-helper' ),
-					__( 'Key', 'wpcodefactory-helper' ),
-					__( 'Actions', 'wpcodefactory-helper' ) ) ),
+					esc_html__( 'Type', 'wpcodefactory-helper' ),
+					esc_html__( 'Item', 'wpcodefactory-helper' ),
+					esc_html__( 'Key', 'wpcodefactory-helper' ),
+					esc_html__( 'Actions', 'wpcodefactory-helper' ) ) ),
 				$table_data
 			);
-			$html .= '<div class="wrap">' . $this->get_table_html( $table_data, array( 'table_class' => 'widefat striped' ) ) . '</div>';
+			$html .= '<div class="wrap">' .
+				$this->get_table_html( $table_data, array( 'table_class' => 'widefat striped' ) ) .
+			'</div>';
 		} else {
-			$html .= '<p style="font-style:italic;">' . sprintf( __( 'You have no items from %s installed.', 'wpcodefactory-helper' ),
-				'<a target="_blank" href="' . alg_wpcodefactory_helper()->update_server . '">' . alg_wpcodefactory_helper()->update_server_text . '</a>' ) . '</p>';
+			$html .= '<p style="font-style:italic;">' .
+				sprintf(
+					__( 'You have no items from %s installed.', 'wpcodefactory-helper' ),
+					'<a target="_blank" href="' . alg_wpcodefactory_helper()->update_server . '">' .
+						alg_wpcodefactory_helper()->update_server_text .
+					'</a>'
+				) .
+			'</p>';
 		}
 
 		$html .= '<p>' .
-			'<a class="button button-secondary" style="margin-top:18px;" href="' . add_query_arg( array( 'alg_update_item_list' => '1' ) ) . '">' .
-				__( 'Update item list manually', 'wpcodefactory-helper' ) .
-			'</a>';
+			sprintf(
+				'<a class="button button-secondary" style="margin-top:18px;" href="%s">%s</a>',
+				esc_url( add_query_arg( array( 'alg_update_item_list' => '1' ) ) ),
+				esc_html__( 'Update item list manually', 'wpcodefactory-helper' )
+			) .
+		'</p>';
+
 		$html .= '</div>';
 
 		echo $html;

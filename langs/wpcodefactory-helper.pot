@@ -69,7 +69,7 @@ msgid "Plugin"
 msgstr ""
 
 #: includes/class-alg-wpcodefactory-helper-site-key-manager.php:238
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:325
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:337
 msgid "Theme"
 msgstr ""
 
@@ -79,8 +79,8 @@ msgid "%s key"
 msgstr ""
 
 #: includes/class-alg-wpcodefactory-helper-site-key-manager.php:260
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:316
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:329
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:321
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:346
 msgid "Set key"
 msgstr ""
 
@@ -105,33 +105,33 @@ msgstr ""
 msgid "WPFactory items"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:318
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:331
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:327
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:352
 msgid "Check key"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:338
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:362
 msgid "Type"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:339
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:363
 msgid "Item"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:340
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:364
 msgid "Key"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:341
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:365
 msgid "Actions"
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:346
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:374
 #, php-format
 msgid "You have no items from %s installed."
 msgstr ""
 
-#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:352
+#: includes/class-alg-wpcodefactory-helper-site-key-manager.php:386
 msgid "Update item list manually"
 msgstr ""
 
